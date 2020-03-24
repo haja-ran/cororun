@@ -1,0 +1,166 @@
+#scene {
+  width: 100vw;
+  height: 100vh;
+  background: #f2f2f2;
+  position: relative;
+  overflow: hidden;
+}
+
+#player {
+  height: 112px;
+  width: 64px;
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  overflow: hidden;
+  z-index: 5;
+
+  &:after {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 800%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url("/img/player.svg");
+    animation: 0.7s walking infinite;
+    animation-timing-function: steps(8, end);
+    background-size: 100% 100%;
+  }
+}
+
+.obstacle {
+  position: absolute;
+  height: 56px;
+  width: 24px;
+  right: -24px;
+  bottom: 1.5rem;
+  // animation: coming 5s linear;
+  &:after {
+    content: "";
+    display: block;
+    background: url("/img/virus.svg");
+    width: 100%;
+    height: 100%;
+    padding-top: 100%;
+    background-size: contain;
+    animation: virus 2s infinite ease-in-out;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 5;
+  }
+}
+
+.toilet-paper {
+  position: absolute;
+  height: 56px;
+  width: 24px;
+  right: -24px;
+  bottom: 1.5rem;
+  // animation: coming 5s linear;
+  background: url("/img/toilet-paper.svg");
+  z-index: 5;
+}
+
+.floor {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 56px;
+  z-index: 0;
+  background: url("/img/floor.svg");
+  background-size: 168px 56px;
+  animation: floor-movement 8s infinite linear;
+  &:after {
+    content: "";
+    background: blue;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 56px;
+    background: url("/img/floor.svg");
+    background-size: 168px 56px;
+  }
+}
+
+@keyframes floor-movement {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes coming {
+  to {
+    transform: translateX(calc(-100vw - 24px));
+  }
+}
+
+@keyframes virus {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(180deg) scale(1.2);
+  }
+
+  100% {
+    transform: rotate(0) scale(1);
+  }
+}
+
+@keyframes walking {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes pop-in {
+  to {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: unset;
+    transform: scale(1);
+  }
+}
+
+@keyframes pop-out {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+.anime-pop-out {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(0.8);
+  animation: pop-out 0.8s ease-out;
+  animation-fill-mode: forwards;
+}
+
+.anime-pop-in {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  animation: pop-in 1.5s ease-out;
+  animation-fill-mode: forwards;
+  transform: scale(0.8);
+}
+
+.start-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1000;
+}
