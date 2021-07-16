@@ -1,8 +1,77 @@
-#scene {
-  width: 100vw;
-  height: 100vh;
-  background: #f2f2f2;
-  position: relative;
+// Import Bulma's core
+@import "~bulma/sass/utilities/_all";
+
+// Particles
+@import './_particles';
+
+// Set your colors
+$primary: #f0386b;
+$primary-invert: findColorInvert($primary);
+$twitter: #4099ff;
+$twitter-invert: findColorInvert($twitter);
+$twitter-invert: findColorInvert($twitter);
+
+// Setup $colors to use as bulma classes (e.g. 'is-twitter')
+$colors: ("white": ($white,
+    $black),
+  "black": ($black,
+    $white),
+  "light": ($light,
+    $light-invert),
+  "dark": ($dark,
+    $dark-invert),
+  "primary": ($primary,
+    $primary-invert),
+  "info": ($info,
+    $info-invert),
+  "success": ($success,
+    $success-invert),
+  "warning": ($warning,
+    $warning-invert),
+  "danger": ($danger,
+    $danger-invert),
+  "twitter": ($twitter,
+    $twitter-invert),
+  "blue": ($blue,
+    $blue-invert));
+
+// Links
+$link: $primary;
+$link-invert: $primary-invert;
+$link-focus-border: $primary;
+$floor-height: 100px;
+
+// Import Bulma and Buefy styles
+@import "~bulma";
+@import "~bulma/sass/utilities/_all";
+@import "~bulma/sass/base/_all";
+@import "~bulma/sass/elements/box.sass";
+@import "~bulma/sass/elements/button.sass";
+@import "~bulma/sass/elements/container.sass";
+@import "~bulma/sass/elements/content.sass";
+@import "~bulma/sass/elements/icon.sass";
+@import "~bulma/sass/elements/image.sass";
+@import "~bulma/sass/elements/tag.sass";
+@import "~bulma/sass/elements/title.sass";
+@import "~bulma/sass/elements/other.sass";
+@import "~bulma/sass/components/_all";
+@import "~bulma/sass/layout/_all";
+@import "~buefy/src/scss/buefy";
+
+body {
+  background: $black;
+}
+
+#scene,
+.start-screen,
+.game-over {
+  position: absolute !important;
+  min-height: unset !important;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
   overflow: hidden;
 }
 
@@ -10,7 +79,7 @@
   height: 112px;
   width: 64px;
   position: absolute;
-  bottom: 1.5rem;
+  bottom: calc(#{$floor-height} + 1.5rem);
   left: 1.5rem;
   overflow: hidden;
   z-index: 5;
@@ -35,8 +104,9 @@
   height: 56px;
   width: 24px;
   right: -24px;
-  bottom: 1.5rem;
-  // animation: coming 5s linear;
+  bottom: calc(#{$floor-height} + 1.5rem);
+  z-index: 20;
+
   &:after {
     content: "";
     display: block;
@@ -48,7 +118,6 @@
     animation: virus 2s infinite ease-in-out;
     background-position: center;
     background-repeat: no-repeat;
-    z-index: 5;
   }
 }
 
@@ -57,9 +126,20 @@
   height: 56px;
   width: 24px;
   right: -24px;
-  bottom: 1.5rem;
-  // animation: coming 5s linear;
+  bottom: calc(#{$floor-height} + 1.5rem);
+  ;
   background: url("/img/toilet-paper.svg");
+  z-index: 5;
+}
+
+.medicine {
+  position: absolute;
+  height: 56px;
+  width: 24px;
+  right: -24px;
+  bottom: calc(#{$floor-height} + 1.5rem);
+  ;
+  background: url("/img/medicine.svg");
   z-index: 5;
 }
 
@@ -68,22 +148,80 @@
   bottom: 0;
   left: 0;
   width: 100vw;
-  height: 56px;
+  height: 156px;
   z-index: 0;
-  background: url("/img/floor.svg");
-  background-size: 168px 56px;
+  background: url("/img/floor-2.svg");
+  background-size: 168px 156px;
   animation: floor-movement 8s infinite linear;
+  z-index: 2;
+
   &:after {
     content: "";
-    background: blue;
     display: block;
     position: absolute;
     top: 0;
     left: 100%;
     width: 100%;
-    height: 56px;
-    background: url("/img/floor.svg");
-    background-size: 168px 56px;
+    height: 156px;
+    background: url("/img/floor-2.svg");
+    background-size: 168px 156px;
+  }
+}
+
+#scene {
+  background-color: #1e0c1a;
+}
+
+.city-front {
+  position: absolute;
+  bottom: calc(#{$floor-height} + 44px);
+  left: 0;
+  width: 100vw;
+  height: 176px;
+  z-index: 0;
+  background: url("/img/scene-front.svg");
+  background-size: 818px 176px;
+  animation: floor-movement 18s infinite linear;
+  z-index: 1;
+
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100vw;
+    height: 176px;
+    background: url("/img/scene-front.svg");
+    background-size: 818px 176px;
+  }
+}
+
+.city-back {
+  $height: 426px;
+  $width: 100vw;
+
+  position: absolute;
+  bottom: calc(#{$floor-height} + 44px);
+  left: 0;
+  width: $width;
+  height: $height;
+  z-index: 0;
+  background: url("/img/scene-back.svg");
+  background-size: 817px 426px;
+  animation: floor-movement 20s infinite linear;
+  z-index: 0;
+
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: $width;
+    height: $height;
+    background: url("/img/scene-back.svg");
+    background-size: 817px 426px;
   }
 }
 
@@ -91,6 +229,7 @@
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-100%);
   }
@@ -108,7 +247,7 @@
   }
 
   50% {
-    transform: rotate(180deg) scale(1.2);
+    transform: rotate(180deg) scale(1.4);
   }
 
   100% {
@@ -163,4 +302,27 @@
   width: 100%;
   height: 100vh;
   z-index: 1000;
+}
+
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+}
+
+.page-enter-to,
+.page-leave {
+  opacity: 1;
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.5s;
+}
+
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
