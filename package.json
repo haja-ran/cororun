@@ -20,10 +20,10 @@
     "howler": "^2.1.3",
     "js-storage": "^1.1.0",
     "node-sass": "^4.13.1",
-    "nuxt": "^2.0.0",
+    "nuxt": "^2.15.7",
     "nuxt-buefy": "^0.3.2",
     "sass-loader": "^8.0.2",
-    "simple-crypto-js": "^2.2.0",
+    "simple-crypto-js": "^2.5.0",
     "vue-social-sharing": "^2.4.7"
   },
   "devDependencies": {}
