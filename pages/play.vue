@@ -1,7 +1,7 @@
 <template>
   <div>
     <div ref="scene" id="scene">
-      <div class="ready-prompt" :class="{ 'is-ready' : isReady }">
+      <div class="ready-prompt" :class="{ 'is-ready': isReady }">
         <div class="container has-text-centered">
           <p class="title is-3 has-text-warning">
             Are you ready ?
@@ -9,23 +9,32 @@
           <p class="subtitle has-text-grey-light" style="margin-bottom: 1.5rem">
             <span class="icon">
               <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                  <path fill="currentColor" d="M10,9A1,1 0 0,1 11,8A1,1 0 0,1 12,9V13.47L13.21,13.6L18.15,15.79C18.68,16.03 19,16.56 19,17.14V21.5C18.97,22.32 18.32,22.97 17.5,23H11C10.62,23 10.26,22.85 10,22.57L5.1,18.37L5.84,17.6C6.03,17.39 6.3,17.28 6.58,17.28H6.8L10,19V9M11,5A4,4 0 0,1 15,9C15,10.5 14.2,11.77 13,12.46V11.24C13.61,10.69 14,9.89 14,9A3,3 0 0,0 11,6A3,3 0 0,0 8,9C8,9.89 8.39,10.69 9,11.24V12.46C7.8,11.77 7,10.5 7,9A4,4 0 0,1 11,5Z" />
+                <path
+                  fill="currentColor"
+                  d="M10,9A1,1 0 0,1 11,8A1,1 0 0,1 12,9V13.47L13.21,13.6L18.15,15.79C18.68,16.03 19,16.56 19,17.14V21.5C18.97,22.32 18.32,22.97 17.5,23H11C10.62,23 10.26,22.85 10,22.57L5.1,18.37L5.84,17.6C6.03,17.39 6.3,17.28 6.58,17.28H6.8L10,19V9M11,5A4,4 0 0,1 15,9C15,10.5 14.2,11.77 13,12.46V11.24C13.61,10.69 14,9.89 14,9A3,3 0 0,0 11,6A3,3 0 0,0 8,9C8,9.89 8.39,10.69 9,11.24V12.46C7.8,11.77 7,10.5 7,9A4,4 0 0,1 11,5Z"
+                />
               </svg>
             </span>
             <strong class="has-text-white">Tap</strong> or
             <span class="icon">
               <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                  <path fill="currentColor" d="M3 15H5V19H19V15H21V19C21 20.1 20.1 21 19 21H5C3.9 21 3 20.1 3 19V15Z" />
+                <path
+                  fill="currentColor"
+                  d="M3 15H5V19H19V15H21V19C21 20.1 20.1 21 19 21H5C3.9 21 3 20.1 3 19V15Z"
+                />
               </svg>
             </span>
             <strong class="has-text-white">Spacebar</strong> to jump
           </p>
           <div class="bounce-forever">
-            <div @click="onReady" class="button is-large is-warning is-rounded ">
+            <div
+              @click="onReady"
+              class="button is-large is-warning is-rounded "
+            >
               <b-icon icon="run"></b-icon>
-            <span>
+              <span>
                 Start
-            </span>
+              </span>
             </div>
           </div>
         </div>
@@ -35,10 +44,13 @@
         <div class="top-bar">
           <div class="top-bar-left">
             <div ref="health" class="tags has-addons">
-              <span  class="tag is-medium is-rounded is-success">
+              <span class="tag is-medium is-rounded is-success">
                 <div class="icon">
                   <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                    <path fill="currentColor" d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z" />
+                    <path
+                      fill="currentColor"
+                      d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+                    />
                   </svg>
                 </div>
               </span>
@@ -53,7 +65,10 @@
               <span class="tag is-medium is-rounded is-warning">
                 <div class="icon">
                   <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                      <path fill="currentColor" d="M9 3C5.69 3 3.14 5.69 3 9V21H12V13.46C13.1 14.45 14.5 15 16 15C19.31 15 22 12.31 22 9C22 5.69 19.31 3 16 3H9M16 5C18.21 5 20 6.79 20 9C20 11.21 18.21 13 16 13C13.79 13 12 11.21 12 9C12 6.79 13.79 5 16 5M16 7.25C15.03 7.25 14.25 8.03 14.25 9C14.25 9.97 15.03 10.75 16 10.75C16.97 10.75 17.75 9.97 17.75 9C17.75 8.03 16.97 7.25 16 7.25M4 12H5V13H4V12M6 12H7V13H6V12M8 12H9V13H8V12M10 12H11V13H10V12Z" />
+                    <path
+                      fill="currentColor"
+                      d="M9 3C5.69 3 3.14 5.69 3 9V21H12V13.46C13.1 14.45 14.5 15 16 15C19.31 15 22 12.31 22 9C22 5.69 19.31 3 16 3H9M16 5C18.21 5 20 6.79 20 9C20 11.21 18.21 13 16 13C13.79 13 12 11.21 12 9C12 6.79 13.79 5 16 5M16 7.25C15.03 7.25 14.25 8.03 14.25 9C14.25 9.97 15.03 10.75 16 10.75C16.97 10.75 17.75 9.97 17.75 9C17.75 8.03 16.97 7.25 16 7.25M4 12H5V13H4V12M6 12H7V13H6V12M8 12H9V13H8V12M10 12H11V13H10V12Z"
+                    />
                   </svg>
                 </div>
               </span>
@@ -65,7 +80,6 @@
               <b-icon icon="pause"></b-icon>
             </div>
           </div>
-
         </div>
       </div>
 
@@ -77,13 +91,12 @@
       <div class="city-front"></div>
       <div class="city-back"></div>
       <div class="floor"></div>
-
     </div>
 
     <div class="pause-menu" :class="{ 'is-active': isPaused }">
       <div @click="toggleMute()" class="pause-menu-item has-text-primary">
-        <b-icon v-if="isMuted" icon="volume-off"></b-icon> 
-        <b-icon v-else  icon="volume-high"></b-icon>
+        <b-icon v-if="isMuted" icon="volume-off"></b-icon>
+        <b-icon v-else icon="volume-high"></b-icon>
         <span v-if="isMuted">Sound Off</span>
         <span v-else>Sound On</span>
       </div>
@@ -97,38 +110,13 @@
         <b-icon icon="home"></b-icon> <span>Home</span>
       </nuxt-link>
     </div>
-
   </div>
 </template>
 
 <script>
-import anime from "animejs/lib/anime.es.js";
-import soundEffects from "~/mixins/soundEffects.js";
-
-function isElement(obj) {
-  try {
-    return obj instanceof HTMLElement;
-  } catch (e) {
-    return (
-      typeof obj === "object" &&
-      obj.nodeType === 1 &&
-      typeof obj.style === "object" &&
-      typeof obj.ownerDocument === "object"
-    );
-  }
-}
-
-function uuid() {
-  let dt = new Date().getTime();
-  let uuid = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(
-    c
-  ) {
-    let r = (dt + Math.random() * 16) % 16 | 0;
-    dt = Math.floor(dt / 16);
-    return (c == "x" ? r : (r & 0x3) | 0x8).toString(16);
-  });
-  return uuid;
-}
+import anime from 'animejs/lib/anime.es.js';
+import soundEffects from '~/mixins/soundEffects.js';
+import { isElement, uuid } from '~/utils.js';
 
 export default {
   mixins: [soundEffects],
@@ -139,7 +127,7 @@ export default {
       collisionListeners: {},
       healthCounter: 3,
       scoreCounter: 0,
-      trackingTiming: 40,
+      collisionCheckFrequency: 40,
       gameInterval: null,
       animationRefs: {},
       isPaused: false,
@@ -149,8 +137,8 @@ export default {
       intervals: {
         toiletPaper: false,
         obstacle: false,
-        medicine: false
-      }
+        medicine: false,
+      },
     };
   },
 
@@ -168,7 +156,7 @@ export default {
         return true;
       }
       return false;
-    }
+    },
   },
 
   methods: {
@@ -178,7 +166,7 @@ export default {
         scale: 5,
         opacity: 0,
         duration: 600,
-        easing: "easeOutSine"
+        easing: 'easeOutSine',
       });
     },
 
@@ -187,8 +175,8 @@ export default {
         targets: this.scene,
         translateY: 24,
         duration: 150,
-        direction: "alternate",
-        easing: "easeInOutQuad"
+        direction: 'alternate',
+        easing: 'easeInOutQuad',
       });
     },
 
@@ -197,15 +185,15 @@ export default {
         anime({
           targets: this.player,
           translateY: -200,
-          direction: "alternate",
-          easing: "easeOutQuad",
+          direction: 'alternate',
+          easing: 'easeOutQuad',
           duration: 300,
           begin: () => {
             this.isJumping = true;
           },
           complete: () => {
             this.isJumping = false;
-          }
+          },
         });
       }
     },
@@ -234,17 +222,16 @@ export default {
           return;
         }
 
-        if (obstacleLeft <= playerLeft) {
-          if (!!this.collisionListeners[uid]) {
-            clearInterval(this.collisionListeners[uid]);
-          }
-          return;
+        const obstacleIsPassed = obstacleLeft <= playerLeft;
+        const collistionListenerExists = !!this.collisionListeners[uid];
+        if (obstacleIsPassed && collistionListenerExists) {
+          clearInterval(this.collisionListeners[uid]);
         }
       };
 
       this.collisionListeners[uid] = setInterval(() => {
         trackObstacle();
-      }, this.trackingTiming);
+      }, this.collisionCheckFrequency);
     },
 
     comingAnimation(el, callback) {
@@ -262,17 +249,17 @@ export default {
         targets: el,
         translateX: [0, -width - 24],
         duration: duration,
-        easing: "linear",
+        easing: 'linear',
         complete: () => {
           callback();
-        }
+        },
       });
     },
 
     createToiletPaper() {
       if (this.isPaused) return;
-      let toiletPaper = document.createElement("div");
-      toiletPaper.classList.add("toilet-paper");
+      let toiletPaper = document.createElement('div');
+      toiletPaper.classList.add('toilet-paper');
       this.scene.appendChild(toiletPaper);
       this.onCollision(toiletPaper, () => {
         this.onToiletPaperTouch();
@@ -291,8 +278,8 @@ export default {
 
     createMedicine() {
       if (this.isPaused) return;
-      let medicine = document.createElement("div");
-      medicine.classList.add("medicine");
+      let medicine = document.createElement('div');
+      medicine.classList.add('medicine');
       this.scene.appendChild(medicine);
       this.onCollision(medicine, () => {
         this.onMedicineTouch();
@@ -310,8 +297,8 @@ export default {
 
     createObstacle() {
       if (this.isPaused) return;
-      let obstacle = document.createElement("div");
-      obstacle.classList.add("obstacle");
+      let obstacle = document.createElement('div');
+      obstacle.classList.add('obstacle');
       this.scene.appendChild(obstacle);
 
       this.onCollision(obstacle, () => {
@@ -366,7 +353,7 @@ export default {
 
     cleanDOM() {
       const els = document.querySelectorAll(
-        ".obstacle, .toilet-paper, .medicine"
+        '.obstacle, .toilet-paper, .medicine'
       );
       els.forEach(el => {
         scene.removeChild(el);
@@ -433,9 +420,9 @@ export default {
       this.shakeScene();
       this.healthCounter--;
       this.$buefy.toast.open({
-        type: "is-primary",
+        type: 'is-primary',
         message: ` <p class="title has-text-white">Ouuch !</p> `,
-        duration: 700
+        duration: 700,
       });
       if (this.gameOver) {
         this.onGameOver();
@@ -449,9 +436,9 @@ export default {
       }
       this.scoreCounter += 15;
       this.$buefy.toast.open({
-        type: "is-success",
+        type: 'is-success',
         message: `<p class="title has-text-white">+15</p> `,
-        duration: 700
+        duration: 700,
       });
     },
 
@@ -461,16 +448,16 @@ export default {
       }
       this.healthCounter++;
       this.$buefy.toast.open({
-        type: "is-success",
+        type: 'is-success',
         message: `<p class="title has-text-white">Health + 1</p> `,
-        duration: 700
+        duration: 700,
       });
     },
 
     onGameOver() {
       const score = this.scoreCounter;
       this.saveBestScore();
-      this.$router.push("/game-over/" + score);
+      this.$router.push('/game-over/' + score);
     },
 
     pauseAnimations() {
@@ -499,12 +486,12 @@ export default {
 
     saveBestScore() {
       if (this.scoreCounter > this.bestScore) {
-        window.localStorage.setItem("bestscore", this.scoreCounter.toString());
+        window.localStorage.setItem('bestscore', this.scoreCounter.toString());
       }
     },
 
     getBestScore() {
-      const bestScore = window.localStorage.getItem("bestscore");
+      const bestScore = window.localStorage.getItem('bestscore');
       if (!!bestScore) {
         this.bestScore = bestScore;
       }
@@ -516,18 +503,18 @@ export default {
       }
       this.isReady = true;
       this.startGame();
-    }
+    },
   },
 
   mounted() {
-    this.mainSoundtrack("breathing", this.$route.name).play();
+    this.mainSoundtrack('breathing', this.$route.name).play();
   },
 
   beforeDestroy() {
     this.cleanDOM();
     this.resetListeners();
-    this.mainSoundtrack("breathing", this.$route.name).stop();
-  }
+    this.mainSoundtrack('breathing', this.$route.name).stop();
+  },
 };
 </script>
 
@@ -590,6 +577,7 @@ export default {
   width: 100%;
   z-index: 1000;
 }
+
 .score-board {
   position: absolute;
   top: 1.5rem;
